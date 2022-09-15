@@ -1,2 +1,2 @@
-It includes Java Training Concepts
+This Repository includes Core JAVA concepts and example programs.
 # JAVA-Training
