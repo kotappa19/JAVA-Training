@@ -5,15 +5,16 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class BookDriver {
+public class StudentDriver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Book b=new Book(10, "JAVA", "Kotappa", 10000);
+//		Serialisation
+		Student s=new Student("Appu", 45);
 		try {
-			FileOutputStream fos=new FileOutputStream("book.txt");
+			FileOutputStream fos=new FileOutputStream("file.txt");
 			ObjectOutputStream out=new ObjectOutputStream(fos);
-			out.writeObject(b);
+			out.writeObject(s);
 			out.close();
 			fos.close();
 			System.out.println("Serialised Successfully");
@@ -21,14 +22,15 @@ public class BookDriver {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+//		Deserialisation
 		try {
-			FileInputStream fis=new FileInputStream("book.txt");
+			FileInputStream fis=new FileInputStream("file.txt");
 			ObjectInputStream input=new ObjectInputStream(fis);
-			Book book=(Book)input.readObject();
-			System.out.println(book.bid+" "+book.bname+" "+book.aname+" "+book.price);
-			input.close();
-			fis.close();
-			System.out.println("Deserialised Successfully");
+			Student st=(Student)input.readObject();
+			System.out.println(st.sname);
+			System.out.println(st.age);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
